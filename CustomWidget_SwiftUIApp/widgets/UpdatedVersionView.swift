@@ -36,7 +36,7 @@ struct UpdatedVersionView: View {
                             .clipShape(Capsule())
                     }
                 }
-                .frame(width: (UIDevice.current.userInterfaceIdiom == .pad ? 375 : (geometry.size.width-60)))
+                .frame(width: (UIDevice.current.userInterfaceIdiom == .pad) ? 375 : UIScreen.main.bounds.width-60)
                 .padding(.vertical,25)
                 .background(HUDBlurView())
                 .background(Color.white)

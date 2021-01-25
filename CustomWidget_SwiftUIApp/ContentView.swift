@@ -31,6 +31,13 @@ var dataSource = [
     Banner(id: 2, img: "h2", name: "name2", show: false),
     Banner(id: 3, img: "h3", name: "name3", show: false),
     Banner(id: 4, img: "h4", name: "name4", show: false),
+    Banner(id: 5, img: "h4", name: "name5", show: false),
+
+//        Banner(id: 1, img: "FirstLaunch_1", name: "name1", show: false),
+//        Banner(id: 2, img: "FirstLaunch_2", name: "name2", show: false),
+//        Banner(id: 3, img: "FirstLaunch_3", name: "name3", show: false),
+//        Banner(id: 4, img: "FirstLaunch_4", name: "name4", show: false),
+//        Banner(id: 5, img: "FirstLaunch_5", name: "name5", show: false),
 ]
 struct ContentView: View {
     
@@ -47,60 +54,54 @@ struct ContentView: View {
         ZStack (alignment: Alignment(horizontal: .center, vertical: .center)) {
 
             VStack(spacing: 25,content: {
-
-                HStack(spacing: 15) {
-                    ForEach(dataSource) { i in
-                        BannerView(data: i)
-                            .frame(width: UIScreen.main.bounds.width-30, height: 240)
-                    }
-                }.background(Color.green)
+                BannerView(dataSource: dataSource)
                 
-//                Button(action: {
-//                    withAnimation { self.showingImagePicker = true }
-//                }, label: {
-//                    if avator != nil {
-//                        avator?.resizable().scaledToFit()
-//                    }else{
-//                        Image("default").resizable().scaledToFit()
-//                    }
-//                }).sheet(isPresented: $showingImagePicker, onDismiss: loadImage, content: {
-//                    ImagePicker(image: self.$inputImage)
-//                }).frame(width: 88,height: 88)
+                Button(action: {
+                    withAnimation { self.showingImagePicker = true }
+                }, label: {
+                    if avator != nil {
+                        avator?.resizable().scaledToFit()
+                    }else{
+                        Image("default").resizable().scaledToFit()
+                    }
+                }).sheet(isPresented: $showingImagePicker, onDismiss: loadImage, content: {
+                    ImagePicker(image: self.$inputImage)
+                }).frame(width: 88,height: 88)
 ////
-//                Button(action: {
-//                    self.isShow = true
-//                    DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-//                        self.isShow = false
-//                    }
-//                }, label: {
-//                    Text("Button")
-//                }).blur(radius: self.isShow ? 3 : 0,opaque: true)
-//                if isShow {
-//                    LoadingView(isLoading: $isShow, loadStr: "loading ...")
-//                }
-////
-//                Button(action: {
-//                    alertView()
-//                }, label: {
-//                    Text("alert")
-//                })
-//                Text(password).fontWeight(.bold)
+                Button(action: {
+                    self.isShow = true
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                        self.isShow = false
+                    }
+                }, label: {
+                    Text("Button")
+                }).blur(radius: self.isShow ? 3 : 0,opaque: true)
+                if isShow {
+                    LoadingView(isLoading: $isShow, loadStr: "loading ...")
+                }
 //
-//                Button(action: {
-//                    withAnimation {
-//                        self.HUD.toggle()
-//                    }
-//                }, label: {
-//                    Text("HUD progress View")
-//                })
-//
-//                Button(action: {
-//                    withAnimation {
-//                        self.updateVervison.toggle()
-//                    }
-//                }, label: {
-//                    Text("CustomAlertView")
-//                })
+                Button(action: {
+                    alertView()
+                }, label: {
+                    Text("alert")
+                })
+                Text(password).fontWeight(.bold)
+
+                Button(action: {
+                    withAnimation {
+                        self.HUD.toggle()
+                    }
+                }, label: {
+                    Text("HUD progress View")
+                })
+
+                Button(action: {
+                    withAnimation {
+                        self.updateVervison.toggle()
+                    }
+                }, label: {
+                    Text("CustomAlertView")
+                })
             })
             if HUD {
                 HUDProgressView(placeHolder: "place wait", show: $HUD)
@@ -112,7 +113,6 @@ struct ContentView: View {
 
             }
         }
-        .background(Color.black.opacity(0.7))
         .edgesIgnoringSafeArea(.all)
     }
     
