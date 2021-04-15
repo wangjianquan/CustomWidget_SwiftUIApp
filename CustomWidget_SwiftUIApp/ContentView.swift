@@ -27,11 +27,11 @@ struct Carousel<Content:View> : ContainerView{
     }
 }
 var dataSource = [
-    Banner(id: 1, img: "h1", name: "name1", show: false),
-    Banner(id: 2, img: "h2", name: "name2", show: false),
-    Banner(id: 3, img: "h3", name: "name3", show: false),
-    Banner(id: 4, img: "h4", name: "name4", show: false),
-    Banner(id: 5, img: "h4", name: "name5", show: false),
+    Banner(id: 1, img: "h1", name: "name1", show: true),
+    Banner(id: 2, img: "h2", name: "name2", show: true),
+    Banner(id: 3, img: "h3", name: "name3", show: true),
+    Banner(id: 4, img: "h4", name: "name4", show: true),
+    Banner(id: 5, img: "h4", name: "name5", show: true)
 
 //        Banner(id: 1, img: "FirstLaunch_1", name: "name1", show: false),
 //        Banner(id: 2, img: "FirstLaunch_2", name: "name2", show: false),
