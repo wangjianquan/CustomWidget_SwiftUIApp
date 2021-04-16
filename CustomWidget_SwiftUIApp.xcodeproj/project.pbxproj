@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		12187BB426299BCA0050BFEF /* CustomShapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12187BB326299BCA0050BFEF /* CustomShapes.swift */; };
 		123FFD9825BAB73A004E30EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123FFD9725BAB73A004E30EC /* AppDelegate.swift */; };
 		123FFD9A25BAB73A004E30EC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123FFD9925BAB73A004E30EC /* SceneDelegate.swift */; };
 		123FFD9C25BAB73A004E30EC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123FFD9B25BAB73A004E30EC /* ContentView.swift */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		12187BB326299BCA0050BFEF /* CustomShapes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomShapes.swift; sourceTree = "<group>"; };
 		123FFD9425BAB73A004E30EC /* CustomWidget_SwiftUIApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CustomWidget_SwiftUIApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		123FFD9725BAB73A004E30EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		123FFD9925BAB73A004E30EC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 				123FFD9725BAB73A004E30EC /* AppDelegate.swift */,
 				123FFD9925BAB73A004E30EC /* SceneDelegate.swift */,
 				123FFD9B25BAB73A004E30EC /* ContentView.swift */,
+				12187BB326299BCA0050BFEF /* CustomShapes.swift */,
 				123FFDDB25BAE12A004E30EC /* BannerTest.swift */,
 				12DF1BB925C018D50013C860 /* SearchHistoryView.swift */,
 				12C3C40C2624261C00C25A74 /* AppSettingsView.swift */,
@@ -177,6 +180,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12187BB426299BCA0050BFEF /* CustomShapes.swift in Sources */,
 				123FFDB425BAB7F8004E30EC /* UpdatedVersionView.swift in Sources */,
 				123FFD9825BAB73A004E30EC /* AppDelegate.swift in Sources */,
 				12C3C40D2624261C00C25A74 /* AppSettingsView.swift in Sources */,

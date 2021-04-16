@@ -51,11 +51,12 @@ struct ContentView: View {
     @State var showingImagePicker = false
 
     var body: some View {
-        ZStack (alignment: Alignment(horizontal: .center, vertical: .center)) {
+        ZStack  {
 
             VStack(spacing: 25,content: {
+                Spacer(minLength: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/)
                 BannerView(dataSource: dataSource)
-                
+
                 Button(action: {
                     withAnimation { self.showingImagePicker = true }
                 }, label: {
@@ -103,6 +104,11 @@ struct ContentView: View {
                     Text("CustomAlertView")
                 })
             })
+            .frame(maxWidth: 320)
+            .padding()
+            .background(Color.pink.clipShape(BillShape()).cornerRadius(25))
+            .padding(.horizontal)
+
             if HUD {
                 HUDProgressView(placeHolder: "place wait", show: $HUD)
             }
@@ -144,5 +150,23 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+    }
+}
+struct BillShape: Shape {
+    
+    func path(in rect: CGRect) -> Path {
+        return Path { path in
+            
+            path.move(to: CGPoint(x: 0, y: 0))
+            path.addLine(to: CGPoint(x: 0, y: rect.height))
+            path.addLine(to: CGPoint(x: rect.width, y: rect.height))
+            path.addLine(to: CGPoint(x: rect.width, y: 0))
+            
+            path.move(to: CGPoint(x: 0, y: 80))
+            path.addArc(center: CGPoint(x: 0, y: 80), radius: 20, startAngle: Angle(degrees: -90), endAngle: Angle(degrees: 90), clockwise: false)
+            
+            path.move(to: CGPoint(x: rect.width, y: 80))
+            path.addArc(center: CGPoint(x: rect.width, y: 80), radius: 20, startAngle: Angle(degrees: 90), endAngle: Angle(degrees: -90), clockwise: false)
+        }
     }
 }
