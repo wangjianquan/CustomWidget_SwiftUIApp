@@ -43,6 +43,8 @@ struct ContentView: View {
     
     @State var isShow = false
     @State var HUD = false
+    @State private var value = 0
+    @State private var showingSheet = false
     @State var password = ""
     @State var updateVervison = false
     @State private var avator: Image?
@@ -51,87 +53,122 @@ struct ContentView: View {
     @State var showingImagePicker = false
 
     var body: some View {
-//        NavigationView {
-//
-//            VStack(spacing: 15, content: {
-//                NavigationLink(destination:BannerView(dataSource: dataSource)) {
-//                    Text("轮播图")
-//                }.buttonStyle(PlainButtonStyle())
-//
-//                Button(action: {
-//                    withAnimation { self.showingImagePicker = true }
-//                }, label: {
-//                    if avator != nil {
-//                        avator?.resizable().scaledToFit()
-//                    }else{
-//                        Image("default").resizable().scaledToFit()
-//                    }
-//                }).sheet(isPresented: $showingImagePicker, onDismiss: loadImage, content: {
-//                    ImagePicker(image: self.$inputImage)
-//                }).frame(width: 88,height: 88)
-//////
-//                Button(action: {
-//                    self.isShow = true
-//                    DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-//                        self.isShow = false
-//                    }
-//                }, label: {
-//                    Text("Button")
-//                }).blur(radius: self.isShow ? 3 : 0,opaque: true)
-//                if isShow {
-//                    LoadingView(isLoading: $isShow, loadStr: "loading ...")
-//                }
+        NavigationView {
+
+            VStack(spacing: 15, content: {
+                NavigationLink(destination:BannerView(dataSource: dataSource)) {
+                    Text("轮播图")
+                }.buttonStyle(PlainButtonStyle())
+
+                Button(action: {
+                    withAnimation { self.showingImagePicker = true }
+                }, label: {
+                    if avator != nil {
+                        avator?.resizable().scaledToFit()
+                    }else{
+                        Image("default").resizable().scaledToFit()
+                    }
+                }).sheet(isPresented: $showingImagePicker, onDismiss: loadImage, content: {
+                    ImagePicker(image: self.$inputImage)
+                }).frame(width: 88,height: 88)
 ////
-//                Button(action: {
-//                    alertView()
-//                }, label: {
-//                    Text("alert")
-//                })
-//                Text(password).fontWeight(.bold)
-////
+                Button(action: {
+                    self.isShow = true
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                        self.isShow = false
+                    }
+                }, label: {
+                    Text("Button")
+                }).blur(radius: self.isShow ? 3 : 0,opaque: true)
+                if isShow {
+                    LoadingView(isLoading: $isShow, loadStr: "loading ...")
+                }
+//
+                Button(action: {
+                    alertView()
+                }, label: {
+                    Text("alert")
+                })
+                Text(password).fontWeight(.bold)
+//
+                    Button(action: {
+                        withAnimation {
+                            self.HUD.toggle()
+                        }
+                    }, label: {
+                        Text("HUD progress View")
+                    })
+
+                    if HUD {
+                        HUDProgressView(placeHolder: "place wait", show: $HUD)
+                    }
+
 //                    Button(action: {
 //                        withAnimation {
-//                            self.HUD.toggle()
+//                            self.updateVervison.toggle()
 //                        }
 //                    }, label: {
-//                        Text("HUD progress View")
+//                        Text("CustomAlertView")
 //                    })
 //
-//                    if HUD {
-//                        HUDProgressView(placeHolder: "place wait", show: $HUD)
+//                    if updateVervison {
+//
+//                        UpdatedVersionView(show: $updateVervison, version: "新版本 v1.2.0", content: "1.性能优化\n2.第三方库升级\n3.优化设计")
+//
 //                    }
-//
-////                    Button(action: {
-////                        withAnimation {
-////                            self.updateVervison.toggle()
-////                        }
-////                    }, label: {
-////                        Text("CustomAlertView")
-////                    })
-////
-////                    if updateVervison {
-////
-////                        UpdatedVersionView(show: $updateVervison, version: "新版本 v1.2.0", content: "1.性能优化\n2.第三方库升级\n3.优化设计")
-////
-////                    }
-//
-//                VStack(content: {
-//                    Text("Placeholder")
-//                    Spacer()
-//                })
-//                .frame(maxWidth: 320 ,maxHeight: 150)
-//                .padding()
+
+
+                VStack(spacing:nil, content: {
+                    Stepper("Change badgeValue", value: $value, in: 0...88).padding(10)
+                    HStack(spacing: 24, content: {
+                        BadgeImageView(icon: "message1",badgeValue: $value, action: $showingSheet)
+                            .frame(width: 44, height: 44)
+                           .actionSheet(isPresented: $showingSheet) { () -> ActionSheet in
+                               ActionSheet(title: Text("ActionSheet"), message: Text("message"), buttons: [.cancel(Text("取消")),.default(Text("拍照"),action: {
+
+                               }),.default(Text("相册"), action: {
+
+                               })])}
+//                        Spacer()
+                        NavigationLink(destination: ShapeTestView()) {
+                            BadgeButton(icon: "message",badgeValue: $value, action: $showingSheet)
+                                .background(Color.blue)
+                        }
+                    })
+                    Spacer()
+                })
+                .frame(maxWidth: 320 ,maxHeight: 150)
+                .padding()
 //                .padding(.horizontal)
-//                .background(Color.pink.clipShape(BillShape()).cornerRadius(25))
+                .background(Color.purple.clipShape(BillShape()).cornerRadius(25))
+                
 //
-//            })
-//            .background(Color.gray)
-//
-//
-//
-//
-//            .navigationTitle("自定义控件")
-//        }
+               
+                
+
+            })
+            .background(Color.gray)
+
+
+
+
+            .navigationBarTitle("个人中心", displayMode: .inline)
+            .navigationBarItems(
+                leading:
+                    NavigationLink(destination: AppGuideView()) {
+                        Image(systemName: "bookmark.circle.fill")
+                            .resizable()
+                            .frame(width: 35, height: 35)
+                    }
+                ,
+                trailing:
+                    NavigationLink(destination: SearchHistoryView()) {
+                        BadgeButton(icon: "message1",badgeValue: $value, action: $showingSheet)
+                    }
+                    
+                
+            )
+        }
 //        .onAppear {
 //        //viewDidAppear()
 //            print("RespondEevent appeared!")

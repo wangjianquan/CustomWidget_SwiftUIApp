@@ -22,6 +22,9 @@ struct BadgeButton: View {
             .frame(width: 44, height: 44)
             .background(
                 Image("\(icon)")
+//                    .resizable()
+//                    .aspectRatio(contentMode: .fit)
+                    .background(icon.isEmpty ? Color.blue : Color.clear)
             )
             .background(Color.clear)
             
