@@ -70,7 +70,7 @@ struct BannerView: View {
     }
     
     fileprivate func getScreen() -> CGFloat {
-        let width = UIScreen.main.bounds.width - 2 * (self.spacing ?? 15)
+        let width = getScreenWidth() - 2 * (self.spacing ?? 15)
         return width
     }
     
@@ -100,7 +100,7 @@ struct CardView: View  {
             
             Image(data.img )
                 .resizable()
-                .frame(width: UIScreen.main.bounds.width - 2 * (spacing ?? 15), height: data.show ? 240 : 200)
+                .frame(width: getScreenWidth() - 2 * (spacing ?? 15), height: data.show ? 240 : 200)
 
             Text(data.name)
                 .fontWeight(.bold)
@@ -108,7 +108,7 @@ struct CardView: View  {
                 .padding(.vertical,(spacing ?? 15))
                 .padding(.horizontal,(spacing ?? 15))
 
-                .frame(width: UIScreen.main.bounds.width - 2 * (spacing ?? 15), height: 40)
+                .frame(width: getScreenWidth() - 2 * (spacing ?? 15), height: 40)
                 .background(Color.black.opacity(0.4))
 
 

@@ -20,6 +20,11 @@
 		123FFDD225BAC007004E30EC /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123FFDD125BAC006004E30EC /* ImagePicker.swift */; };
 		123FFDD525BAD397004E30EC /* BannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123FFDD425BAD397004E30EC /* BannerView.swift */; };
 		123FFDDC25BAE12A004E30EC /* BannerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123FFDDB25BAE12A004E30EC /* BannerTest.swift */; };
+		124123992657A3E500AF72B2 /* ExtensionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124123982657A3E500AF72B2 /* ExtensionView.swift */; };
+		124123A72657AE0900AF72B2 /* AppGuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124123A42657AE0900AF72B2 /* AppGuideView.swift */; };
+		124123A82657AE0900AF72B2 /* BadgeImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124123A52657AE0900AF72B2 /* BadgeImageView.swift */; };
+		124123A92657AE0900AF72B2 /* BadgeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124123A62657AE0900AF72B2 /* BadgeButton.swift */; };
+		1287CE53262FDF9E0061E95B /* ShapeTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1287CE52262FDF9E0061E95B /* ShapeTestView.swift */; };
 		12C3C40D2624261C00C25A74 /* AppSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C3C40C2624261C00C25A74 /* AppSettingsView.swift */; };
 		12DF1BBA25C018D50013C860 /* SearchHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12DF1BB925C018D50013C860 /* SearchHistoryView.swift */; };
 /* End PBXBuildFile section */
@@ -40,6 +45,11 @@
 		123FFDD125BAC006004E30EC /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		123FFDD425BAD397004E30EC /* BannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerView.swift; sourceTree = "<group>"; };
 		123FFDDB25BAE12A004E30EC /* BannerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerTest.swift; sourceTree = "<group>"; };
+		124123982657A3E500AF72B2 /* ExtensionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionView.swift; sourceTree = "<group>"; };
+		124123A42657AE0900AF72B2 /* AppGuideView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppGuideView.swift; sourceTree = "<group>"; };
+		124123A52657AE0900AF72B2 /* BadgeImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadgeImageView.swift; sourceTree = "<group>"; };
+		124123A62657AE0900AF72B2 /* BadgeButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadgeButton.swift; sourceTree = "<group>"; };
+		1287CE52262FDF9E0061E95B /* ShapeTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeTestView.swift; sourceTree = "<group>"; };
 		12C3C40C2624261C00C25A74 /* AppSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettingsView.swift; sourceTree = "<group>"; };
 		12DF1BB925C018D50013C860 /* SearchHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHistoryView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -80,8 +90,10 @@
 				123FFD9B25BAB73A004E30EC /* ContentView.swift */,
 				12187BB326299BCA0050BFEF /* CustomShapes.swift */,
 				123FFDDB25BAE12A004E30EC /* BannerTest.swift */,
+				1287CE52262FDF9E0061E95B /* ShapeTestView.swift */,
 				12DF1BB925C018D50013C860 /* SearchHistoryView.swift */,
 				12C3C40C2624261C00C25A74 /* AppSettingsView.swift */,
+				124123982657A3E500AF72B2 /* ExtensionView.swift */,
 				123FFD9D25BAB73B004E30EC /* Assets.xcassets */,
 				123FFDA225BAB73B004E30EC /* LaunchScreen.storyboard */,
 				123FFDA525BAB73B004E30EC /* Info.plist */,
@@ -102,6 +114,9 @@
 			isa = PBXGroup;
 			children = (
 				123FFDB225BAB7F8004E30EC /* HUDProgressView.swift */,
+				124123A42657AE0900AF72B2 /* AppGuideView.swift */,
+				124123A62657AE0900AF72B2 /* BadgeButton.swift */,
+				124123A52657AE0900AF72B2 /* BadgeImageView.swift */,
 				123FFDB325BAB7F8004E30EC /* LoadingView.swift */,
 				123FFDD125BAC006004E30EC /* ImagePicker.swift */,
 				123FFDB125BAB7F8004E30EC /* UpdatedVersionView.swift */,
@@ -180,15 +195,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				124123A82657AE0900AF72B2 /* BadgeImageView.swift in Sources */,
 				12187BB426299BCA0050BFEF /* CustomShapes.swift in Sources */,
 				123FFDB425BAB7F8004E30EC /* UpdatedVersionView.swift in Sources */,
 				123FFD9825BAB73A004E30EC /* AppDelegate.swift in Sources */,
 				12C3C40D2624261C00C25A74 /* AppSettingsView.swift in Sources */,
+				124123992657A3E500AF72B2 /* ExtensionView.swift in Sources */,
+				124123A72657AE0900AF72B2 /* AppGuideView.swift in Sources */,
+				124123A92657AE0900AF72B2 /* BadgeButton.swift in Sources */,
 				123FFDB525BAB7F8004E30EC /* HUDProgressView.swift in Sources */,
 				123FFDD225BAC007004E30EC /* ImagePicker.swift in Sources */,
 				123FFDD525BAD397004E30EC /* BannerView.swift in Sources */,
 				123FFD9A25BAB73A004E30EC /* SceneDelegate.swift in Sources */,
 				123FFDDC25BAE12A004E30EC /* BannerTest.swift in Sources */,
+				1287CE53262FDF9E0061E95B /* ShapeTestView.swift in Sources */,
 				12DF1BBA25C018D50013C860 /* SearchHistoryView.swift in Sources */,
 				123FFDB625BAB7F8004E30EC /* LoadingView.swift in Sources */,
 				123FFD9C25BAB73A004E30EC /* ContentView.swift in Sources */,

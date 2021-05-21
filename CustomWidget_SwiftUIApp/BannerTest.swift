@@ -18,10 +18,34 @@ struct SizeCategoryPreview<Content: View>: View {
     
 }
 struct BannerTest: View {
-    
+    var modifier: some ViewModifier {
+        #if DEBUG
+        return SubheadlineModifier()
+        #else
+        return EmptyModifier()
+        #endif
+    }
    
     var body: some View {
         VStack(content: {
+            Path { path in
+                path.move(to: CGPoint(x: 200, y: 100))
+                path.addLine(to: CGPoint(x: 100, y: 300))
+                path.addLine(to: CGPoint(x: 300, y: 300))
+                path.addLine(to: CGPoint(x: 200, y: 100))
+                path.addLine(to: CGPoint(x: 100, y: 300))
+            }
+//            .stroke(Color.blue.opacity(0.5), lineWidth: 6)
+            .stroke(Color.blue, style: StrokeStyle(lineWidth: 10, lineCap: .round, lineJoin: .round))
+//            .fill(Color.blue)
+            Path { path in
+                path.move(to:CGPoint(x: 10, y: 0))
+                path.addLine(to: CGPoint(x: 300, y: 0))
+            }
+            .stroke(Color.red, style: StrokeStyle(lineWidth: 1, lineCap: .butt, lineJoin: .miter, dash: [10]))
+                .frame(height: 1)
+                .padding(.horizontal)
+                .padding(.top, 10)
             //BannerView(dataSource: dataSource)
             //Text("Hello World!")
             Group {
@@ -42,13 +66,7 @@ struct BannerTest: View {
             .padding()
         })
     }
-    var modifier: some ViewModifier {
-        #if DEBUG
-        return SubheadlineModifier()
-        #else
-        return EmptyModifier()
-        #endif
-    }
+    
 }
 //Xcode监视Swift文件，并且一旦Swift文件包含符合PreviewProvider协议的结构，它就会显示预览画布。
 struct BannerTest_Previews: PreviewProvider {

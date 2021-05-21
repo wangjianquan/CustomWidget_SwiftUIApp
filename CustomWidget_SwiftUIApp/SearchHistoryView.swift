@@ -47,7 +47,7 @@ struct Search: View {
                                     .lineLimit(1)
                                     .overlay(GeometryReader(content: { geometry -> Color in
                                         let maxX = geometry.frame(in: .global).maxX
-                                        if maxX > UIScreen.main.bounds.width - 70 && !chips[index][chipIndex].isExceeded{
+                                        if maxX > getScreenWidth() - 70 && !chips[index][chipIndex].isExceeded{
                                             DispatchQueue.main.async {
                                                 chips[index][chipIndex].isExceeded = true
                                                 let lastItem = chips[index][chipIndex]
@@ -70,7 +70,7 @@ struct Search: View {
                 }
                 .padding()
             }
-            .frame(width: UIScreen.main.bounds.width - 30, height: UIScreen.main.bounds.height / 3)
+            .frame(width: getScreenWidth() - 30, height: UIScreen.main.bounds.height / 3)
             .background(RoundedRectangle(cornerRadius: 15).stroke(Color.gray.opacity(0.4),lineWidth: 1.5))
             
             
