@@ -48,20 +48,13 @@ struct BannerTest: View {
                 .padding(.top, 10)
             //BannerView(dataSource: dataSource)
             //Text("Hello World!")
-            Group {
-                Text("Hello")
-                Text("World")
-                Text("!!!")
-            }
-            .background(Color.yellow)
-            .padding()
+            
 
             Group {
-                Text("Hello").modifier( SubheadlineModifier())
+                Text("Hello").modifier(SubheadlineModifier())
                 Text("World").modifier(BorderedCaption())
                 Text("!!!").modifier(modifier)
                 Text("extension").borderedCaption()
-
             }
             .padding()
         })
