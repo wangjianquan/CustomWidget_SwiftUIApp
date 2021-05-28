@@ -32,9 +32,7 @@ struct Popup<T: View>: ViewModifier {
             
             if isPresented {
                 popup
-//                    .animation(.spring())
-                    .animation(.default)
-//                    .transition(.offset(x: 0, y: direction.offset(popupFrame: geometry.frame(in: .global))))
+                    .animation(.spring())
                     .transition((normal_center == false) ? .scale : .offset(x: 0, y: direction.offset(popupFrame: geometry.frame(in: .global))))
                     .frame(width: geometry.size.width, height: geometry.size.height, alignment: alignment)
             }

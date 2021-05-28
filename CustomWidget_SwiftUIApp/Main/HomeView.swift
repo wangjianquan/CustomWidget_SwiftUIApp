@@ -24,57 +24,89 @@ struct HomeView: View {
         NavigationView {
 
             VStack(spacing: 15, content: {
-                NavigationLink(destination:BannerView(dataSource: dataSource)) {
-                    Text("轮播图")
-                }.buttonStyle(PlainButtonStyle())
+//                Spacer()
+//                BannerView(dataSource: dataSource)
+                HStack(spacing: 15) {
 
-                NavigationLink(destination:KeyboardTestView()) {
-                    Text("键盘高度")
-                }.buttonStyle(PlainButtonStyle())
-                
-                
-                Button(action: {
-                    withAnimation { self.showingImagePicker = true }
-                }, label: {
-                    if avator != nil {
-                        avator?.resizable().scaledToFit()
-                    }else{
-                        Image("default").resizable().scaledToFit()
-                    }
-                }).sheet(isPresented: $showingImagePicker, onDismiss: loadImage, content: {
-                    ImagePicker(image: self.$inputImage)
-                }).frame(width: 88,height: 88)
-////
-                Button(action: {
-                    self.isShow = true
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                        self.isShow = false
-                    }
-                }, label: {
-                    Text("Button")
-                })
-                
-                
-//
-                Button(action: {
-                    alertView()
-                }, label: {
-                    Text("alert")
-                })
-                Text(password).fontWeight(.bold)
+                    NavigationLink(destination:BannerView(dataSource: dataSource)) {
+                        Text("轮播图").background(Color.gray.opacity(0.4))
+                    }.buttonStyle(PlainButtonStyle())
+                    
+                    NavigationLink(destination:PopupTestView()) {
+                        Text("Popup 弹出方向").background(Color.gray.opacity(0.5))
+                    }.buttonStyle(PlainButtonStyle())
+                    
+                    NavigationLink(destination:PopDissolveTestView()) {
+                        Text("PopDissolve").background(Color.gray.opacity(0.5))
+                    }.buttonStyle(PlainButtonStyle())
+                    
+////                    NavigationLink(destination:KeyboardTestView()) {
+////                        Text("键盘高度").background(Color.gray.opacity(0.5))
+////                    }.buttonStyle(PlainButtonStyle())
+//                    NavigationLink(destination:ContentView()) {
+//                        Text("ContentView").background(Color.gray.opacity(0.5))
+//                    }.buttonStyle(PlainButtonStyle())
+                    
+                    
+                }
+                .background(Color.white)
+                .padding()
 
-                Button("HUD progress View") {
-                    withAnimation {
-                        self.HUD.toggle()
+                Section {
+
+                    HStack(spacing: 20, content: {
+                        Button(action: {
+                            withAnimation { self.showingImagePicker = true }
+                        }, label: {
+                            if avator != nil {
+                                avator?.resizable().scaledToFit()
+                            }else{
+                                Image("default").resizable().scaledToFit()
+                            }
+                        }).sheet(isPresented: $showingImagePicker, onDismiss: loadImage, content: {
+                            ImagePicker(image: self.$inputImage)
+                        }).frame(width: 88,height: 88).addVerifiedBadge(true)
+                        
+                        Button(action: {
+                            self.isShow = true
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                                self.isShow = false
+                            }
+                        }, label: {
+                            Text(".popup").background(Color.white)
+                        })
+                        Button(action: {
+                            self.isShow = true
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                                self.isShow = false
+                            }
+                        }, label: {
+                            Text(".popDissolve").background(Color.white)
+                        })
+                    })
+                    
+    //
+                    Button(action: {
+                        alertView()
+                    }, label: {
+                        Text("alert")
+                    })
+                    Text(password).fontWeight(.bold)
+
+                    Button("HUD progress View") {
+                        withAnimation {
+                            self.HUD.toggle()
+                        }
+                    }
+
+                    Button("updateVervison") {
+                        withAnimation {
+                            self.updateVervison.toggle()
+                        }
                     }
                 }
-
-                Button("CustomAlertView") {
-                    withAnimation {
-                        self.updateVervison.toggle()
-                    }
-                }
                 
+               
                 VStack(spacing:nil, content: {
                     Stepper("Change badgeValue", value: $value, in: 0...88).padding(10)
                     HStack(spacing: 24, content: {
@@ -102,7 +134,6 @@ struct HomeView: View {
             })
 //            .frame(width: .infinity, height: .infinity)
             
-            
             .background(Color.pink)
             .navigationBarTitle("首页", displayMode: .inline)
             .navigationBarItems(
@@ -116,24 +147,21 @@ struct HomeView: View {
                         BadgeButton(icon: "message1",badgeValue: $value, action: $showingSheet)
                     }
             )
-        }.edgesIgnoringSafeArea(.all)
-        .popup(isPresented: HUD, direction: .center,content: {
-            HUDProgressView(placeHolder: "place wait", show: $HUD)
-
-        })
-            .popup(isPresented: updateVervison, direction: .center, content: {
-                UpdatedVersionView(show: $updateVervison, version: "新版本 v1.2.0", content: "1.性能优化\n2.第三方库升级\n3.优化设计")
-            })
-        .popup(isPresented: isShow, direction: .center, content: {
-            LoadingView(isLoading: $isShow, loadStr: "loading ...")
-        })
-//        .edgesIgnoringSafeArea(.all)
-
-        if updateVervison {
-            UpdatedVersionView(show: $updateVervison, version: "新版本 v1.2.0", content: "1.性能优化\n2.第三方库升级\n3.优化设计")
         }
+        .popDissolve(isPresented: HUD, content: {
+            HUDProgressView(placeHolder: "place wait", show: $HUD)
+        })
+        .popDissolve(isPresented: updateVervison,  content: {
+            UpdatedVersionView(show: $updateVervison, version: "新版本 v1.2.0", content: "1.性能优化\n2.第三方库升级\n3.优化设计")
+        })
+        .popDissolve(isPresented: isShow, content: {
+            LoadingView(isLoading: $isShow)
+        })
+        .edgesIgnoringSafeArea(.all)
+
+        
     }
-    
+
     func alertView() {
         let alert = UIAlertController(title: "login", message: "enter your passsword", preferredStyle: .alert)
         alert.addTextField { (textField) in

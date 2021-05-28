@@ -25,6 +25,10 @@
 		124123A72657AE0900AF72B2 /* AppGuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124123A42657AE0900AF72B2 /* AppGuideView.swift */; };
 		124123A82657AE0900AF72B2 /* BadgeImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124123A52657AE0900AF72B2 /* BadgeImageView.swift */; };
 		124123A92657AE0900AF72B2 /* BadgeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124123A62657AE0900AF72B2 /* BadgeButton.swift */; };
+		124CBCCB2660D07800B6439C /* PopDissolveTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124CBCCA2660D07800B6439C /* PopDissolveTestView.swift */; };
+		125E896426609CE600C84113 /* PopDissolve.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125E896326609CE600C84113 /* PopDissolve.swift */; };
+		125E89662660A01000C84113 /* PopupTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125E89652660A01000C84113 /* PopupTestView.swift */; };
+		125E89682660A1B300C84113 /* WJTextHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125E89672660A1B300C84113 /* WJTextHUD.swift */; };
 		1287CE53262FDF9E0061E95B /* ShapeTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1287CE52262FDF9E0061E95B /* ShapeTestView.swift */; };
 		12A938BB265F78A8005B8830 /* Popup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A938BA265F78A8005B8830 /* Popup.swift */; };
 		12A938BD265F7F9A005B8830 /* PopoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A938BC265F7F9A005B8830 /* PopoverView.swift */; };
@@ -67,6 +71,10 @@
 		124123A42657AE0900AF72B2 /* AppGuideView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppGuideView.swift; sourceTree = "<group>"; };
 		124123A52657AE0900AF72B2 /* BadgeImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadgeImageView.swift; sourceTree = "<group>"; };
 		124123A62657AE0900AF72B2 /* BadgeButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadgeButton.swift; sourceTree = "<group>"; };
+		124CBCCA2660D07800B6439C /* PopDissolveTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopDissolveTestView.swift; sourceTree = "<group>"; };
+		125E896326609CE600C84113 /* PopDissolve.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopDissolve.swift; sourceTree = "<group>"; };
+		125E89652660A01000C84113 /* PopupTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupTestView.swift; sourceTree = "<group>"; };
+		125E89672660A1B300C84113 /* WJTextHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WJTextHUD.swift; sourceTree = "<group>"; };
 		1287CE52262FDF9E0061E95B /* ShapeTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeTestView.swift; sourceTree = "<group>"; };
 		12A938BA265F78A8005B8830 /* Popup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Popup.swift; sourceTree = "<group>"; };
 		12A938BC265F7F9A005B8830 /* PopoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverView.swift; sourceTree = "<group>"; };
@@ -150,6 +158,7 @@
 			children = (
 				12187BB326299BCA0050BFEF /* CustomShapes.swift */,
 				123FFDB225BAB7F8004E30EC /* HUDProgressView.swift */,
+				125E89672660A1B300C84113 /* WJTextHUD.swift */,
 				124123A42657AE0900AF72B2 /* AppGuideView.swift */,
 				124123A62657AE0900AF72B2 /* BadgeButton.swift */,
 				124123A52657AE0900AF72B2 /* BadgeImageView.swift */,
@@ -165,6 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				12A938BA265F78A8005B8830 /* Popup.swift */,
+				125E896326609CE600C84113 /* PopDissolve.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -187,7 +197,9 @@
 			isa = PBXGroup;
 			children = (
 				123FFDDB25BAE12A004E30EC /* BannerTest.swift */,
+				124CBCCA2660D07800B6439C /* PopDissolveTestView.swift */,
 				123D06A2265CEFC5006B6C95 /* KeyboardTestView.swift */,
+				125E89652660A01000C84113 /* PopupTestView.swift */,
 				12A938BC265F7F9A005B8830 /* PopoverView.swift */,
 				1287CE52262FDF9E0061E95B /* ShapeTestView.swift */,
 				12DF1BB925C018D50013C860 /* SearchHistoryView.swift */,
@@ -286,6 +298,7 @@
 				123FFD9825BAB73A004E30EC /* AppDelegate.swift in Sources */,
 				12C3C40D2624261C00C25A74 /* AppSettingsView.swift in Sources */,
 				12A938CC265F893E005B8830 /* ZZTabBar.swift in Sources */,
+				125E89682660A1B300C84113 /* WJTextHUD.swift in Sources */,
 				124123992657A3E500AF72B2 /* ExtensionView.swift in Sources */,
 				12A938C9265F893E005B8830 /* SystemTabBar.swift in Sources */,
 				12A938CB265F893E005B8830 /* TabBarLineStyle.swift in Sources */,
@@ -297,17 +310,20 @@
 				12A938D7265F8A45005B8830 /* FindView.swift in Sources */,
 				12A938C6265F893E005B8830 /* MainTabBar.swift in Sources */,
 				123FFDD225BAC007004E30EC /* ImagePicker.swift in Sources */,
+				125E896426609CE600C84113 /* PopDissolve.swift in Sources */,
 				123FFDD525BAD397004E30EC /* BannerView.swift in Sources */,
 				12A938C7265F893E005B8830 /* CurvedTabBar.swift in Sources */,
 				12A938BB265F78A8005B8830 /* Popup.swift in Sources */,
 				12A938DC265F8A45005B8830 /* VideoView.swift in Sources */,
 				123FFD9A25BAB73A004E30EC /* SceneDelegate.swift in Sources */,
+				125E89662660A01000C84113 /* PopupTestView.swift in Sources */,
 				123FFDDC25BAE12A004E30EC /* BannerTest.swift in Sources */,
 				12A938DB265F8A45005B8830 /* MyView.swift in Sources */,
 				12A938CA265F893E005B8830 /* TabBarView.swift in Sources */,
 				123D06A3265CEFC5006B6C95 /* KeyboardTestView.swift in Sources */,
 				1287CE53262FDF9E0061E95B /* ShapeTestView.swift in Sources */,
 				12DF1BBA25C018D50013C860 /* SearchHistoryView.swift in Sources */,
+				124CBCCB2660D07800B6439C /* PopDissolveTestView.swift in Sources */,
 				12A938CE265F89AA005B8830 /* AppView.swift in Sources */,
 				123FFDB625BAB7F8004E30EC /* LoadingView.swift in Sources */,
 				12A938BD265F7F9A005B8830 /* PopoverView.swift in Sources */,

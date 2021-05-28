@@ -53,40 +53,31 @@ struct ContentView: View {
 
     var body: some View {
         ZStack  {
-            VStack(spacing: 25,content: {
-               
-                Button(action: {
+            VStack(alignment:.center,spacing: 20,content: {
+                Button("HUD progress View") {
                     withAnimation {
                         self.HUD.toggle()
                     }
-                }, label: {
-                    Text("HUD progress View")
-                })
-
-                Button(action: {
+                }
+                
+                Button("CustomAlertView") {
                     withAnimation {
                         self.updateVervison.toggle()
                     }
-                }, label: {
-                    Text("CustomAlertView")
-                })
+                }
             })
-            .frame(maxWidth: getScreenWidth()-30)
             .frame(maxHeight: 320)
-
-//            .padding()
-            .background(Color.pink.cornerRadius(25))
-//            .padding()
+            .background(Color.pink)
+            .padding()
 
             if HUD {
                 HUDProgressView(placeHolder: "place wait", show: $HUD)
             }
 
             if updateVervison {
-
                 UpdatedVersionView(show: $updateVervison, version: "新版本 v1.2.0", content: "1.性能优化\n2.第三方库升级\n3.优化设计")
-
             }
+            
         }
         .frame(width: getScreenWidth(), height: getScreenHeight())
         .background(Color.green)

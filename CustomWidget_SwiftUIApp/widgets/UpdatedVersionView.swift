@@ -40,6 +40,7 @@ struct UpdatedVersionView: View {
                 .padding(.vertical,25)
                 .background(HUDBlurView())
                 .background(Color.white)
+                
                 Button {
                     withAnimation {
                         show.toggle()
@@ -59,7 +60,7 @@ struct UpdatedVersionView: View {
                     .onTapGesture {
                         withAnimation {
                             //点击背景消失
-                            //show.toggle()
+                            show.toggle()
                         }
             })
         })
