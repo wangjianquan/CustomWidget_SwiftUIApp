@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1213B5AC2664EB1700F2BD66 /* AsyncButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1213B5AB2664EB1700F2BD66 /* AsyncButton.swift */; };
+		1213B5AE2664EF8900F2BD66 /* SearchKeyword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1213B5AD2664EF8900F2BD66 /* SearchKeyword.swift */; };
 		12187BB426299BCA0050BFEF /* CustomShapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12187BB326299BCA0050BFEF /* CustomShapes.swift */; };
 		123D06A3265CEFC5006B6C95 /* KeyboardTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123D06A2265CEFC5006B6C95 /* KeyboardTestView.swift */; };
 		123FFD9825BAB73A004E30EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123FFD9725BAB73A004E30EC /* AppDelegate.swift */; };
@@ -51,6 +53,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1213B5AB2664EB1700F2BD66 /* AsyncButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncButton.swift; sourceTree = "<group>"; };
+		1213B5AD2664EF8900F2BD66 /* SearchKeyword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchKeyword.swift; sourceTree = "<group>"; };
 		12187BB326299BCA0050BFEF /* CustomShapes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomShapes.swift; sourceTree = "<group>"; };
 		123D06A2265CEFC5006B6C95 /* KeyboardTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardTestView.swift; sourceTree = "<group>"; };
 		123FFD9425BAB73A004E30EC /* CustomWidget_SwiftUIApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CustomWidget_SwiftUIApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -166,6 +170,8 @@
 				123FFDD125BAC006004E30EC /* ImagePicker.swift */,
 				123FFDB125BAB7F8004E30EC /* UpdatedVersionView.swift */,
 				123FFDD425BAD397004E30EC /* BannerView.swift */,
+				1213B5AB2664EB1700F2BD66 /* AsyncButton.swift */,
+				1213B5AD2664EF8900F2BD66 /* SearchKeyword.swift */,
 			);
 			path = widgets;
 			sourceTree = "<group>";
@@ -315,6 +321,7 @@
 				12A938C7265F893E005B8830 /* CurvedTabBar.swift in Sources */,
 				12A938BB265F78A8005B8830 /* Popup.swift in Sources */,
 				12A938DC265F8A45005B8830 /* VideoView.swift in Sources */,
+				1213B5AE2664EF8900F2BD66 /* SearchKeyword.swift in Sources */,
 				123FFD9A25BAB73A004E30EC /* SceneDelegate.swift in Sources */,
 				125E89662660A01000C84113 /* PopupTestView.swift in Sources */,
 				123FFDDC25BAE12A004E30EC /* BannerTest.swift in Sources */,
@@ -328,6 +335,7 @@
 				123FFDB625BAB7F8004E30EC /* LoadingView.swift in Sources */,
 				12A938BD265F7F9A005B8830 /* PopoverView.swift in Sources */,
 				123FFD9C25BAB73A004E30EC /* ContentView.swift in Sources */,
+				1213B5AC2664EB1700F2BD66 /* AsyncButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

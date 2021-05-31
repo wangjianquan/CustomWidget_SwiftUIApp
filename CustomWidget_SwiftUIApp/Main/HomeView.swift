@@ -19,11 +19,30 @@ struct HomeView: View {
     @State private var inputImage: UIImage?
     
     @State var showingImagePicker = false
-
+    
+    @State var complete: Bool = false
+    @State var inProgress: Bool = false
+    
+    @State var filters: [String] = [
+        "SwiftUI", "Programming", "iOS", "Mobile Development", "😎"
+        ]
+    
     var body: some View {
         NavigationView {
-
-            VStack(spacing: 15, content: {
+            
+                
+                VStack(spacing: 15, content: {
+                    AsyncButton(isComplete: complete, action: {
+                        inProgress = true
+                        // Start Async Task (Download, Submit, etc)
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                            withAnimation {
+                                complete = true
+                            }
+                        }
+                    }) {
+                        Text(complete || inProgress ? "" : "Submit")
+                    }
 //                Spacer()
 //                BannerView(dataSource: dataSource)
                 HStack(spacing: 15) {
@@ -85,25 +104,43 @@ struct HomeView: View {
                         })
                     })
                     
+                    ScrollView (.horizontal, showsIndicators: false) {
+                        HStack {
+                            ForEach(filters, id: \.self) { filter in
+                                SearchKeyword(name: filter, color: Color.white, type: .removable({
+                                    withAnimation {
+                                        self.filters.removeAll { $0 == filter }
+                                    }
+                                }))
+                                .transition(.opacity)
+                            }
+                        }
+                        .padding(.horizontal, 20)
+                    }
+                    
     //
-                    Button(action: {
-                        alertView()
-                    }, label: {
-                        Text("alert")
-                    })
-                    Text(password).fontWeight(.bold)
-
-                    Button("HUD progress View") {
-                        withAnimation {
-                            self.HUD.toggle()
+                    HStack(content: {
+                        VStack{
+                            Button(action: {
+                                alertView()
+                            }, label: {
+                                Text("alert")
+                            })
+                            Text(password).fontWeight(.bold)
                         }
-                    }
 
-                    Button("updateVervison") {
-                        withAnimation {
-                            self.updateVervison.toggle()
+                        Button("HUD progress View") {
+                            withAnimation {
+                                self.HUD.toggle()
+                            }
                         }
-                    }
+
+                        Button("updateVervison") {
+                            withAnimation {
+                                self.updateVervison.toggle()
+                            }
+                        }
+                    }).background(Color.white)
                 }
                 
                

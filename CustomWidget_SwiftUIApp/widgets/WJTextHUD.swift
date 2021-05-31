@@ -22,12 +22,9 @@ struct WJTextHUD: View {
                 Text(textString ?? "成功")
                     .foregroundColor(.white)
 //                    .fontWeight(.bold)
-//                    .padding(.top, 8)
             })
            
         })
-        .animation(.spring(response: 0.5, dampingFraction: 0.5))
-        .transition(.moveTopScale)
         .frame(width: 110, height: 44)
 //        .background(Color.gray.opacity(1))
         .cornerRadius(5)
