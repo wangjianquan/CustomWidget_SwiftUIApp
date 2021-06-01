@@ -27,6 +27,11 @@
 		124123A72657AE0900AF72B2 /* AppGuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124123A42657AE0900AF72B2 /* AppGuideView.swift */; };
 		124123A82657AE0900AF72B2 /* BadgeImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124123A52657AE0900AF72B2 /* BadgeImageView.swift */; };
 		124123A92657AE0900AF72B2 /* BadgeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124123A62657AE0900AF72B2 /* BadgeButton.swift */; };
+		124B0AB2266612A7009F027F /* StickyHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124B0AB1266612A7009F027F /* StickyHeader.swift */; };
+		124B0AB42666158B009F027F /* StickyHeader_TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124B0AB32666158B009F027F /* StickyHeader_TestView.swift */; };
+		124B0AB626661894009F027F /* ScrollingHStackModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124B0AB526661894009F027F /* ScrollingHStackModifier.swift */; };
+		124B0AB826663006009F027F /* CustomToggleStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124B0AB726663006009F027F /* CustomToggleStyles.swift */; };
+		124B0ABA2666332B009F027F /* ToggleStyle_TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124B0AB92666332B009F027F /* ToggleStyle_TestView.swift */; };
 		124CBCCB2660D07800B6439C /* PopDissolveTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124CBCCA2660D07800B6439C /* PopDissolveTestView.swift */; };
 		125E896426609CE600C84113 /* PopDissolve.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125E896326609CE600C84113 /* PopDissolve.swift */; };
 		125E89662660A01000C84113 /* PopupTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125E89652660A01000C84113 /* PopupTestView.swift */; };
@@ -75,6 +80,11 @@
 		124123A42657AE0900AF72B2 /* AppGuideView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppGuideView.swift; sourceTree = "<group>"; };
 		124123A52657AE0900AF72B2 /* BadgeImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadgeImageView.swift; sourceTree = "<group>"; };
 		124123A62657AE0900AF72B2 /* BadgeButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadgeButton.swift; sourceTree = "<group>"; };
+		124B0AB1266612A7009F027F /* StickyHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickyHeader.swift; sourceTree = "<group>"; };
+		124B0AB32666158B009F027F /* StickyHeader_TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickyHeader_TestView.swift; sourceTree = "<group>"; };
+		124B0AB526661894009F027F /* ScrollingHStackModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollingHStackModifier.swift; sourceTree = "<group>"; };
+		124B0AB726663006009F027F /* CustomToggleStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomToggleStyles.swift; sourceTree = "<group>"; };
+		124B0AB92666332B009F027F /* ToggleStyle_TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleStyle_TestView.swift; sourceTree = "<group>"; };
 		124CBCCA2660D07800B6439C /* PopDissolveTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopDissolveTestView.swift; sourceTree = "<group>"; };
 		125E896326609CE600C84113 /* PopDissolve.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopDissolve.swift; sourceTree = "<group>"; };
 		125E89652660A01000C84113 /* PopupTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupTestView.swift; sourceTree = "<group>"; };
@@ -180,7 +190,10 @@
 			isa = PBXGroup;
 			children = (
 				12A938BA265F78A8005B8830 /* Popup.swift */,
+				124B0AB526661894009F027F /* ScrollingHStackModifier.swift */,
 				125E896326609CE600C84113 /* PopDissolve.swift */,
+				124B0AB1266612A7009F027F /* StickyHeader.swift */,
+				124B0AB726663006009F027F /* CustomToggleStyles.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -209,6 +222,8 @@
 				12A938BC265F7F9A005B8830 /* PopoverView.swift */,
 				1287CE52262FDF9E0061E95B /* ShapeTestView.swift */,
 				12DF1BB925C018D50013C860 /* SearchHistoryView.swift */,
+				124B0AB32666158B009F027F /* StickyHeader_TestView.swift */,
+				124B0AB92666332B009F027F /* ToggleStyle_TestView.swift */,
 			);
 			path = TestView;
 			sourceTree = "<group>";
@@ -296,6 +311,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				124B0AB42666158B009F027F /* StickyHeader_TestView.swift in Sources */,
 				124123A82657AE0900AF72B2 /* BadgeImageView.swift in Sources */,
 				12A938D9265F8A45005B8830 /* PublishView.swift in Sources */,
 				12187BB426299BCA0050BFEF /* CustomShapes.swift in Sources */,
@@ -311,6 +327,7 @@
 				124123A72657AE0900AF72B2 /* AppGuideView.swift in Sources */,
 				12A938DA265F8A45005B8830 /* MessageView.swift in Sources */,
 				12A938C8265F893E005B8830 /* BubbleTabBarView.swift in Sources */,
+				124B0AB826663006009F027F /* CustomToggleStyles.swift in Sources */,
 				124123A92657AE0900AF72B2 /* BadgeButton.swift in Sources */,
 				123FFDB525BAB7F8004E30EC /* HUDProgressView.swift in Sources */,
 				12A938D7265F8A45005B8830 /* FindView.swift in Sources */,
@@ -325,9 +342,12 @@
 				123FFD9A25BAB73A004E30EC /* SceneDelegate.swift in Sources */,
 				125E89662660A01000C84113 /* PopupTestView.swift in Sources */,
 				123FFDDC25BAE12A004E30EC /* BannerTest.swift in Sources */,
+				124B0AB626661894009F027F /* ScrollingHStackModifier.swift in Sources */,
 				12A938DB265F8A45005B8830 /* MyView.swift in Sources */,
+				124B0ABA2666332B009F027F /* ToggleStyle_TestView.swift in Sources */,
 				12A938CA265F893E005B8830 /* TabBarView.swift in Sources */,
 				123D06A3265CEFC5006B6C95 /* KeyboardTestView.swift in Sources */,
+				124B0AB2266612A7009F027F /* StickyHeader.swift in Sources */,
 				1287CE53262FDF9E0061E95B /* ShapeTestView.swift in Sources */,
 				12DF1BBA25C018D50013C860 /* SearchHistoryView.swift in Sources */,
 				124CBCCB2660D07800B6439C /* PopDissolveTestView.swift in Sources */,

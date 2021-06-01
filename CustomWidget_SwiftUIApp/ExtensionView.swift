@@ -113,3 +113,9 @@ extension Notification {
         return (userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect)?.height ?? 0
     }
 }
+
+extension Color {
+    public static var groupTableViewColor: Color {
+        Color(.sRGB, red: 233/255, green: 233/255, blue: 235/255, opacity: 1.0)
+    }
+}

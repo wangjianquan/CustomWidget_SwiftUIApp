@@ -24,11 +24,18 @@ struct PopupTestView: View {
     var body: some View {
         VStack(alignment: .center, spacing: 10, content: {
             Toggle("isTopBottom", isOn: $isTopBottom).background(Color.white)
-            Toggle("isTopTop", isOn: $isTopTop).background(Color.white)
-            Toggle("isBottomTop", isOn: $isBottomTop).background(Color.white)
+            
+            Toggle("isTopTop", isOn: $isTopTop)
+                .background(Color.white)
+                .toggleStyle(CheckmarkToggleStyle())
+            
+            Toggle("isBottomTop", isOn: $isBottomTop)
+                .background(Color.white)
+                .toggleStyle(PowerToggleStyle())
+            
             Toggle("isBottomBottom", isOn: $isBottomBottom).background(Color.white)
             Toggle("isCenterBottom", isOn: $isCenterBottom).background(Color.white)
-            Toggle("isCenterTop", isOn: $isCenterTop).background(Color.white)
+            Toggle("isCenterTop", isOn: $isCenterTop).background(Color.white).toggleStyle(ImageToggleStyle(onImageName: "h1", offImageName: "h2"))
             
             Button(action: {
                 self.isCenterCenter = true
@@ -141,9 +148,6 @@ struct Snackbar: View {
 }
 
 struct WJProgressHUD: View {
-//    @Binding var isLoading: Bool
-//   var isLoading: Bool
-//    @State var show: Bool
     var loadStr: String? = nil
     @Binding var show: Bool
 
@@ -153,8 +157,6 @@ struct WJProgressHUD: View {
             HStack(content: {
                 Text(loadStr ?? "成功")
                     .foregroundColor(.white)
-//                    .fontWeight(.bold)
-//                    .padding(.top, 8)
             })
            
         })
