@@ -36,6 +36,7 @@
 		125E896426609CE600C84113 /* PopDissolve.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125E896326609CE600C84113 /* PopDissolve.swift */; };
 		125E89662660A01000C84113 /* PopupTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125E89652660A01000C84113 /* PopupTestView.swift */; };
 		125E89682660A1B300C84113 /* WJTextHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125E89672660A1B300C84113 /* WJTextHUD.swift */; };
+		128784F02667411400A1FBCB /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128784EF2667411400A1FBCB /* SearchView.swift */; };
 		1287CE53262FDF9E0061E95B /* ShapeTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1287CE52262FDF9E0061E95B /* ShapeTestView.swift */; };
 		12A938BB265F78A8005B8830 /* Popup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A938BA265F78A8005B8830 /* Popup.swift */; };
 		12A938BD265F7F9A005B8830 /* PopoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A938BC265F7F9A005B8830 /* PopoverView.swift */; };
@@ -89,6 +90,7 @@
 		125E896326609CE600C84113 /* PopDissolve.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopDissolve.swift; sourceTree = "<group>"; };
 		125E89652660A01000C84113 /* PopupTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupTestView.swift; sourceTree = "<group>"; };
 		125E89672660A1B300C84113 /* WJTextHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WJTextHUD.swift; sourceTree = "<group>"; };
+		128784EF2667411400A1FBCB /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		1287CE52262FDF9E0061E95B /* ShapeTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeTestView.swift; sourceTree = "<group>"; };
 		12A938BA265F78A8005B8830 /* Popup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Popup.swift; sourceTree = "<group>"; };
 		12A938BC265F7F9A005B8830 /* PopoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverView.swift; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 				123FFDD425BAD397004E30EC /* BannerView.swift */,
 				1213B5AB2664EB1700F2BD66 /* AsyncButton.swift */,
 				1213B5AD2664EF8900F2BD66 /* SearchKeyword.swift */,
+				128784EF2667411400A1FBCB /* SearchView.swift */,
 			);
 			path = widgets;
 			sourceTree = "<group>";
@@ -347,6 +350,7 @@
 				124B0ABA2666332B009F027F /* ToggleStyle_TestView.swift in Sources */,
 				12A938CA265F893E005B8830 /* TabBarView.swift in Sources */,
 				123D06A3265CEFC5006B6C95 /* KeyboardTestView.swift in Sources */,
+				128784F02667411400A1FBCB /* SearchView.swift in Sources */,
 				124B0AB2266612A7009F027F /* StickyHeader.swift in Sources */,
 				1287CE53262FDF9E0061E95B /* ShapeTestView.swift in Sources */,
 				12DF1BBA25C018D50013C860 /* SearchHistoryView.swift in Sources */,

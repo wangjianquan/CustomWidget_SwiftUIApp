@@ -14,7 +14,37 @@ struct MessageView: View {
                 Text("消息")
             }
         }
-        .navigationTitle("消息")
+        .navigationBarTitleDisplayMode(.inline)
+        
+        .toolbar { // 这与navigationItem.titleViewUIKit 中的设置相同。
+            ToolbarItem(placement: .principal) {
+//                VStack {
+//                    Text("Title").font(.headline)
+//                    Text("Subtitle").font(.subheadline)
+//                }
+                HStack {
+                    Image(systemName: "sun.min.fill")
+                    Button("Subtitle") {
+                                            
+                    }
+                }
+                
+            }
+        }
+        .toolbar {
+            ToolbarItem(placement: .bottomBar) {
+                HStack {
+                    Button(action: {}, label: {
+                        Image(systemName: "archivebox")
+                    })
+                    Spacer()
+                    Button(action: {}, label: {
+                        
+                        Image(systemName: "square.and.pencil")
+                    })
+                }
+            }
+        }
     }
 }
 

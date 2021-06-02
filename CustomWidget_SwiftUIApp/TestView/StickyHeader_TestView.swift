@@ -59,10 +59,20 @@ struct StickyHeader_TestView: View {
 //            }.modifier(ScrollingHStackModifier(items: colors.count, itemWidth: 250, itemSpacing: 30))
 //
 //        })
-        ZStack {
-//            Color.gray.opacity(0.8)
-            SideMenu(selected: $selection, options: ["NEWEST", "POPULAR", "SALE"])
+//        ZStack {
+////            Color.gray.opacity(0.8)
+//            SideMenu(selected: $selection, options: ["NEWEST", "POPULAR", "SALE"])
+//        }
+        Button(action: {
+            // Do stuff when tapped.
+        }) {
+            Text("Learn More")
+                .fontWeight(.heavy)
+                .foregroundColor(.white)
         }
+        .frame(width: 220, height: 60)
+        .background(AnimatedBackgroundGradient())
+        .cornerRadius(12)
 //        .edgesIgnoringSafeArea(.vertical)
     }
 }
@@ -109,5 +119,20 @@ struct SideMenu: View {
             .offset(x: geo.size.height * -0.65, y: -10)
             .rotationEffect(Angle(degrees: -90), anchor: .topLeading)
         }
+    }
+}
+struct AnimatedBackgroundGradient: View {
+    let colors = [Color.blue, Color.purple, Color.pink, Color.pink, Color.red, Color.purple, Color.blue, Color.purple, Color.red, Color.purple, Color.pink, Color.pink]
+    @State private var start = UnitPoint(x: 0, y: -2)
+    @State private var end = UnitPoint(x: 4, y: 0)
+    var body: some View {
+        LinearGradient(gradient: Gradient(colors: colors), startPoint: start, endPoint: end)
+            .animation(Animation.easeInOut(duration: 3).repeatForever())
+            .onAppear {
+                self.start = UnitPoint(x: 4, y: 0)
+                self.end = UnitPoint(x: 0, y: 2)
+                self.start = UnitPoint(x: -4, y: 20)
+                self.end = UnitPoint(x: 4, y: 0)
+            }
     }
 }
