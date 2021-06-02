@@ -119,3 +119,19 @@ extension Color {
         Color(.sRGB, red: 233/255, green: 233/255, blue: 235/255, opacity: 1.0)
     }
 }
+
+struct AnimatedBackgroundGradient: View {
+    let colors = [Color.blue, Color.purple, Color.pink, Color.pink, Color.red, Color.purple, Color.blue, Color.purple, Color.red, Color.purple, Color.pink, Color.pink]
+    @State private var start = UnitPoint(x: 0, y: -2)
+    @State private var end = UnitPoint(x: 4, y: 0)
+    var body: some View {
+        LinearGradient(gradient: Gradient(colors: colors), startPoint: start, endPoint: end)
+            .animation(Animation.easeInOut(duration: 3).repeatForever())
+            .onAppear {
+                self.start = UnitPoint(x: 4, y: 0)
+                self.end = UnitPoint(x: 0, y: 2)
+                self.start = UnitPoint(x: -4, y: 20)
+                self.end = UnitPoint(x: 4, y: 0)
+            }
+    }
+}

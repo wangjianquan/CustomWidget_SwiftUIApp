@@ -23,6 +23,9 @@ struct PopupTestView: View {
     
     var body: some View {
         VStack(alignment: .center, spacing: 10, content: {
+            
+            
+            
             Toggle("isTopBottom", isOn: $isTopBottom).background(Color.white)
             
             Toggle("isTopTop", isOn: $isTopTop)

@@ -102,6 +102,7 @@ struct HomeView: View {
                         }, label: {
                             Text(".popDissolve").background(Color.white)
                         })
+
                     })
                     
                     ScrollView (.horizontal, showsIndicators: false) {

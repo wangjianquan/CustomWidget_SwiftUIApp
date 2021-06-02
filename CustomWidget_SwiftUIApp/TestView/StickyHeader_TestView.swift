@@ -121,6 +121,7 @@ struct SideMenu: View {
         }
     }
 }
+
 struct AnimatedBackgroundGradient: View {
     let colors = [Color.blue, Color.purple, Color.pink, Color.pink, Color.red, Color.purple, Color.blue, Color.purple, Color.red, Color.purple, Color.pink, Color.pink]
     @State private var start = UnitPoint(x: 0, y: -2)
