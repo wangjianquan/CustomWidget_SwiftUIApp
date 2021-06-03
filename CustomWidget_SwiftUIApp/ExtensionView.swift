@@ -115,23 +115,51 @@ extension Notification {
 }
 
 extension Color {
-    public static var groupTableViewColor: Color {
-        Color(.sRGB, red: 233/255, green: 233/255, blue: 235/255, opacity: 1.0)
-    }
+    public static var groupTableViewColor = Color(.sRGB, red: 233/255, green: 233/255, blue: 235/255, opacity: 1.0)
 }
 
-struct AnimatedBackgroundGradient: View {
-    let colors = [Color.blue, Color.purple, Color.pink, Color.pink, Color.red, Color.purple, Color.blue, Color.purple, Color.red, Color.purple, Color.pink, Color.pink]
-    @State private var start = UnitPoint(x: 0, y: -2)
-    @State private var end = UnitPoint(x: 4, y: 0)
-    var body: some View {
-        LinearGradient(gradient: Gradient(colors: colors), startPoint: start, endPoint: end)
-            .animation(Animation.easeInOut(duration: 3).repeatForever())
-            .onAppear {
-                self.start = UnitPoint(x: 4, y: 0)
-                self.end = UnitPoint(x: 0, y: 2)
-                self.start = UnitPoint(x: -4, y: 20)
-                self.end = UnitPoint(x: 4, y: 0)
-            }
-    }
+//struct AnimatedBackgroundGradient: View {
+//    let colors = [Color.blue, Color.purple, Color.pink, Color.pink, Color.red, Color.purple, Color.blue, Color.purple, Color.red, Color.purple, Color.pink, Color.pink]
+//    @State private var start = UnitPoint(x: 0, y: -2)
+//    @State private var end = UnitPoint(x: 4, y: 0)
+//    var body: some View {
+//        LinearGradient(gradient: Gradient(colors: colors), startPoint: start, endPoint: end)
+//            .animation(Animation.easeInOut(duration: 3).repeatForever())
+//            .onAppear {
+//                self.start = UnitPoint(x: 4, y: 0)
+//                self.end = UnitPoint(x: 0, y: 2)
+//                self.start = UnitPoint(x: -4, y: 20)
+//                self.end = UnitPoint(x: 4, y: 0)
+//            }
+//    }
+//}
+
+/*
+ **使SwiftUI 布局组（如 Group、VStack、HStack、List、ForEach 等）中启用 10 个以上的子视图。
+ **
+ */
+extension ViewBuilder {
+    
+    /// `ViewBuilder` extension to build TupleView with 15 child view (using `Group` as well).
+        public static func buildBlock<C0, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14>
+        // Parameters.
+            (_ c0: C0, _ c1: C1, _ c2: C2, _ c3: C3, _ c4: C4, _ c5: C5, _ c6: C6, _ c7: C7, _ c8: C8, _ c9: C9, _ c10: C10, _ c11: C11, _ c12: C12, _ c13: C13, _ c14: C14)
+        // Return type.
+            -> TupleView<
+                (
+                    Group<TupleView<(C0, C1, C2, C3, C4, C5, C6, C7, C8, C9)>>,
+                    Group<TupleView<(C10, C11, C12, C13, C14)>>
+                )
+            >
+        // Type constraints.
+            where C0: View, C1: View, C2: View, C3: View, C4: View, C5: View, C6: View, C7: View, C8: View, C9: View, C10: View, C11: View, C12: View, C13: View, C14: View
+        // Function body.
+        {
+            TupleView(
+                (
+                    Group { TupleView((c0, c1, c2, c3, c4, c5, c6, c7, c8, c9)) },
+                    Group { TupleView((c10, c11, c12, c13, c14)) }
+                )
+            )
+        }
 }
