@@ -59,9 +59,9 @@ struct HomeView: View {
                         Text("PopDissolve").background(Color.gray.opacity(0.5))
                     }.buttonStyle(PlainButtonStyle())
                     
-////                    NavigationLink(destination:KeyboardTestView()) {
-////                        Text("键盘高度").background(Color.gray.opacity(0.5))
-////                    }.buttonStyle(PlainButtonStyle())
+                    NavigationLink(destination:ToggleStyle_TestView()) {
+                        Text("ToggleStyle").background(Color.gray.opacity(0.5))
+                    }.buttonStyle(PlainButtonStyle())
 //                    NavigationLink(destination:ContentView()) {
 //                        Text("ContentView").background(Color.gray.opacity(0.5))
 //                    }.buttonStyle(PlainButtonStyle())
