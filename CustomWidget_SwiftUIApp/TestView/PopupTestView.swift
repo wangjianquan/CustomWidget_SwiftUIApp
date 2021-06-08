@@ -38,7 +38,7 @@ struct PopupTestView: View {
             
             Toggle("isBottomBottom", isOn: $isBottomBottom).background(Color.white)
             Toggle("isCenterBottom", isOn: $isCenterBottom).background(Color.white)
-            Toggle("isCenterTop", isOn: $isCenterTop).background(Color.white).toggleStyle(ImageToggleStyle(onImageName: "h1", offImageName: "h2"))
+            Toggle("isCenterTop", isOn: $isCenterTop).background(Color.white).toggleStyle(BgGradient_BottomTextStyle())
             
             Button(action: {
                 self.isCenterCenter = true

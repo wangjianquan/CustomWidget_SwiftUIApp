@@ -16,6 +16,7 @@ struct ToggleStyle_TestView: View {
     @State var active6 = false
     @State var active7 = false
     @State var active8 = false
+    @State var active9 = false
 
     private let onGradient = LinearGradient(gradient: Gradient(colors: [.red,.purple]), startPoint: .leading, endPoint: .trailing)
 
@@ -28,38 +29,44 @@ struct ToggleStyle_TestView: View {
                         Text("CheckmarkToggleStyle")
                     })
                     .toggleStyle(CheckmarkToggleStyle())
-                    
+
                     Toggle(isOn: $active2, label: {
                         Text("PowerToggleStyle")
                     }).toggleStyle(PowerToggleStyle())
-                    
-                    
+
+
                     Toggle(isOn: $active3, label: {
                         Text("EarphoneToggleStyle")
                     }).toggleStyle(EarphoneToggleStyle())
-                    
-                    
-                    
+
+                   
                     Toggle(isOn: $active4, label: {
                         Text("ImageToggleStyle")
-                    }).toggleStyle(ImageToggleStyle(onImageName: "h1", offImageName: "h2"))
-
+                    }).toggleStyle(
+                        ImageToggleStyle(bgONImgName: "day", bgOFFImgName: "night")
+                    )
+                    Toggle(isOn: $active4, label: {
+                        Text("ImageToggleStyle")
+                    }).toggleStyle(
+                        ImageToggleStyle(onImgName:"Earth_night", offImgName:"Earth_day")
+                        //ImageToggleStyle()
+                    )
                 }
                 
                 Section(header: Text("线性渐变")) {
                     Toggle(isOn: $active7, label: {
                         Text("背景线性渐变-normal")
                     }).toggleStyle(LinearGradientToggleStyle())
-                    
+
                     Toggle(isOn: $active7, label: {
                         Text("背景线性渐变-自定义")
                     }).toggleStyle(LinearGradientToggleStyle(btnGradient: LinearGradient(gradient: Gradient(colors: [.green,.blue]), startPoint: .leading, endPoint: .trailing)))
-                    
-                    
+
+
                     Toggle(isOn: $active7, label: {
                         Text("按钮线性渐变")
                     }).toggleStyle(ONGradientStyle(onGradient: LinearGradient(gradient: Gradient(colors: [.red,.purple]), startPoint: .leading, endPoint: .trailing)))
-                    
+
                     Toggle(isOn: $active7, label: {
                         Text("按钮线性渐变 + 文字")
                     }).toggleStyle(ONGradientStyle(onGradient: LinearGradient(gradient: Gradient(colors: [.red,.purple]), startPoint: .leading, endPoint: .trailing), onName: "开",offName: "关"))
@@ -81,12 +88,33 @@ struct ToggleStyle_TestView: View {
                     Toggle(isOn: $active6, label: {
                         Text("TextToggleStyle 1")
                     }).toggleStyle(BgGradient_BottomTextStyle(onName: "开", offName: "关",onColor: .white,offColor:.green))
+                    
+                    Toggle(isOn: $active6, label: {
+                        Text("TextToggleStyle 1")
+                    }).toggleStyle(OFFTextToggleStyle(onName: "MUSIC OFF", offName: "MUSIC ON"))
+                    
+                    
+                    
                 }
                 Section (header:Text("按钮样式") ){
                     
                     Toggle(isOn: $active8, label: {
                         Text("按钮变形 ")
                     }).toggleStyle(ONDeformStyle())
+                    
+                    Toggle(isOn: $active8, label: {
+                        Text("进度条样式 ")
+                    }).toggleStyle(ProgressToggleStyle())
+                    
+                    
+                    Toggle(isOn: $active9, label: {
+                        Text("按钮缩放 ")
+                    }).toggleStyle(ScaleToggleStyle())
+                    
+                    Toggle(isOn: $active9, label: {
+                        Text("按钮缩放 2")
+                    }).toggleStyle(StrokeToggleStyle())
+                    
                 }
 
             }
@@ -102,6 +130,99 @@ struct ToggleStyle_TestView_Previews: PreviewProvider {
     }
 }
 
+
+struct ProgressToggleStyle: ToggleStyle {
+
+
+    func makeBody(configuration: Configuration) -> some View {
+        HStack {
+            configuration.label
+            Spacer()
+            Capsule()
+                .foregroundColor(configuration.isOn ? .green : .groupTableViewColor)
+                .frame(width: 51, height: 31)
+                .overlay(
+                    Circle()
+                        .foregroundColor(.white)
+                        .padding(.all, 3)
+                        .overlay(
+                            Circle()
+                                .stroke(Color.groupTableViewColor, lineWidth: 1)
+                                .padding(.all, 5)
+                                .overlay(
+                                    Circle()
+                                        .trim(from: 0, to: configuration.isOn ? 1 : 0)
+                                        .stroke(LinearGradient(gradient: Gradient(colors: [.red,.purple]), startPoint: .top, endPoint: .bottom), lineWidth: 2)
+                                        .rotationEffect(.degrees(-90))
+                                        .padding(.all, 6)
+                                )
+
+                        )
+                        .offset(x: configuration.isOn ? 11 : -11, y: 0)
+                        .animation(.easeInOut)
+                )
+                .cornerRadius(20)
+                .onTapGesture { configuration.isOn.toggle() }
+        }
+    }
+}
+struct ScaleToggleStyle: ToggleStyle {
+    var colors: [Color] = [.yellow,.pink,.red]
+
+    func makeBody(configuration: Configuration) -> some View {
+        HStack {
+            configuration.label
+            Spacer()
+            Capsule()
+                .foregroundColor(configuration.isOn ? .green : .groupTableViewColor)
+                .frame(width: 51, height: 31)
+                .overlay(
+                    Circle()
+                        .foregroundColor(.white)
+                        .padding(.all, 3)
+                        .overlay(
+                            Circle()
+                                .fill(LinearGradient(gradient: Gradient(colors: colors), startPoint: .top, endPoint: .bottom))
+                                .scaleEffect(configuration.isOn ? 1 : 0)
+                                //.animation(.spring(dampingFraction: 0.45))
+                                .padding(.all, 6)
+                        )
+                        .offset(x: configuration.isOn ? 10 : -10, y: 0)
+                        .animation(.spring())
+                )
+                .cornerRadius(20)
+                .onTapGesture { configuration.isOn.toggle() }
+        }
+    }
+}
+struct StrokeToggleStyle: ToggleStyle {
+    var colors: [Color] = [.yellow,.pink,.red]
+
+    func makeBody(configuration: Configuration) -> some View {
+        HStack {
+            configuration.label
+            Spacer()
+            Capsule()
+                .foregroundColor(configuration.isOn ? .green : .groupTableViewColor)
+                .frame(width: 51, height: 31)
+                .overlay(
+                    Circle()
+                        .foregroundColor(.white)
+                        .padding(.all, 3)
+                        .overlay(
+                            Circle()
+                                .trim(from: 0, to: 1)
+                                .stroke(configuration.isOn ? Color.red : Color.white, lineWidth: configuration.isOn ? 7 : 0)
+                                .padding(.all, 6)
+                        )
+                        .offset(x: configuration.isOn ? 10 : -10, y: 0)
+                        .animation(.spring())
+                )
+                .cornerRadius(20)
+                .onTapGesture { configuration.isOn.toggle() }
+        }
+    }
+}
 
 struct LinearGradientToggleStyle: ToggleStyle {
 
@@ -367,28 +488,86 @@ struct EarphoneToggleStyle: ToggleStyle {
     }
 }
 struct ImageToggleStyle: ToggleStyle {
-
-    var onImageName: String
-    var offImageName: String
-    @State private var scale: CGFloat = 1
+    
+    var bgONImgName: String = ""
+    var bgOFFImgName: String = ""
+    var onImgName: String = ""
+    var offImgName: String = ""
 
     func makeBody(configuration: Configuration) -> some View {
         HStack {
             configuration.label
             Spacer()
-            Image(configuration.isOn ? onImageName : offImageName)
+            Image(configuration.isOn ? bgONImgName : bgOFFImgName)
                 .resizable()
                 .aspectRatio(contentMode: .fill)
                 .frame(width: 51, height: 31, alignment: .center)
+                .background(configuration.isOn ? Color.green : Color.groupTableViewColor)
                 .overlay(
-                    Circle()
-                        .foregroundColor(.white)
-                        .padding(.all, 3)
-                        .offset(x: configuration.isOn ? 11 : -11, y: 0)
-                        .animation(.spring(response: 0.5, dampingFraction: 0.5))
+                    Image(configuration.isOn ? onImgName : offImgName)
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: 24, height: 24, alignment: .center)
+                        .rotationEffect(.init(degrees: configuration.isOn ? 360 : 0))
+                        .background(Color.white)
+                        .cornerRadius(15)
+                        .offset(x: configuration.isOn ? 9 : -9, y: 0)
+                        .animation(Animation.linear(duration: 0.3))
                 )
                 .cornerRadius(20)
                 .onTapGesture { configuration.isOn.toggle() }
+        }
+    }
+}
+
+struct OFFTextToggleStyle: ToggleStyle {
+    
+    var onName: String = "ON"
+    var offName: String = "OFF"
+    var onImgName: String = ""
+    var offImgName: String = ""
+
+    func makeBody(configuration: Configuration) -> some View {
+        HStack {
+            configuration.label
+            Spacer()
+            Text(onName)
+                .font(.system(size: 12, weight: .bold))
+                .fontWeight(.bold)
+                .foregroundColor(Color(red: 111/255, green: 111/255, blue: 111/255))
+            
+            Capsule()
+                .foregroundColor(configuration.isOn ? Color(red: 113/255, green: 224/255, blue: 236/255) : Color.groupTableViewColor)
+                .frame(width: 51, height: 31, alignment: .center)
+                .overlay(
+                    Image("cm2_default_cover_fm")
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: 25, height: 25, alignment: .center)
+                        .background(Color.white)
+                        .overlay(
+                            Image("music")
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
+                                .frame(width: 15, height: 15, alignment: .center)
+//                                .rotationEffect(.zero, anchor: .center)
+//                                .rotationEffect(.init(degrees: configuration.isOn ? 3600 : 0))
+//                                .rotationEffect(.zero, anchor: .center)
+//                                .rotationEffect(.init(degrees:36000))
+                            .rotationEffect(Angle.degrees(configuration.isOn  ? 360 : 0))
+//                                .animation(Animation.easeIn.repeatForever(autoreverses: true))
+                        )
+//                        .rotationEffect(.init(degrees: configuration.isOn ? 3600 : 0))
+
+                        .cornerRadius(15)
+                        .offset(x: configuration.isOn ? 9 : -9, y: 0)
+                        .animation(Animation.linear(duration: 0.3))
+                )
+                .cornerRadius(20)
+                .onTapGesture { configuration.isOn.toggle() }
+            Text(offName)
+                .font(.system(size: 12, weight: .bold))
+                .foregroundColor(configuration.isOn ? Color(red: 141/255, green: 213/255, blue: 222/255) : Color(red: 177/255, green: 177/255, blue: 177/255))
         }
     }
 }
